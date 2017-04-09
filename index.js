@@ -10,10 +10,6 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join('client', 'build')));
 }
 
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
-});
-
 io.on('connection', function (socket) {
     console.log('a user connected');
     socket.on('disconnect', function () {
